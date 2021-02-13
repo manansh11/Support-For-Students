@@ -36,33 +36,55 @@
 							</header>
 
 							<!-- Put Form Here -->
+							<section>
+
+								<label for="question1" style="font-size:30px;" id="test-1">My warning signs:</label><br>
+								<p>Warning signs are changes that let you know if you're heading into a crisis. They help you act early. What are your warning signs?</p>
+								<textarea id="question1a"></textarea>
+								
+
+								<label for="question2" style="font-size:30px;">My reasons to live:</label><br>
+								<p>Write down things that make you want to live - big or small!</p>
+								<textarea id="question2a"></textarea> 
+
+								<label for="question3" style="font-size:30px;">Making my space safe:</label><br>
+								<p>What can you do to make your enviroment safer? Get rid of stuff that could be harmful to you.</p>
+								<textarea id="question3a"></textarea> 
+
+								<label for="question4" style="font-size:30px;">Things I can do by myself:</label><br>
+								<p>List some of the things you like doing by yourself. What are things that you can do?</p>
+								<textarea id="question4a"></textarea> 
+
+								<label for="question5" style="font-size:30px;">People and places, I can connect with:</label><br>
+								<p>Make a list of places you can reach out to. It's important to connect with others and can make you feel better.</p>
+								<textarea id="question5a"></textarea> 
+
+								<label for="question6" style="font-size:30px;">People I can talk or vent to?:</label><br>
+								<p>List the people you trust here. They can help you stay safe and feel better.</p>
+								<textarea id="question6a"></textarea> 
+								
+								<label for="question7" style="font-size:30px;">Professional Support:</label><br>
+								<p>Professional support is there if you need it. List the services that work for you. <b>In an emergency, always call 911</b></p>
+								<textarea id="question7a"></textarea> 
+								
+								
+							</section>
+
+							<button id="button"> Print PDF </button>
+
+							<!-- End Form-->
+
+							<!-- Resources & Links-->
+							<h1> Resource Section </h1>
+							<ul>
+								<li>Health Link 811</li>
+
+
+							</ul>
 							
 						</div>
 					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Get in touch</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<input type="text" name="name" id="name" placeholder="Name" />
-										</div>
-										<div class="field half">
-											<input type="email" name="email" id="email" placeholder="Email" />
-										</div>
-										<div class="field">
-											<textarea name="message" id="message" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send" class="primary" /></li>
-									</ul>
-								</form>
-							</section>
-			
 							<ul class="copyright">
 								<li>&copy; Untitled. All rights reserved</li></li>
 							</ul>
@@ -77,6 +99,54 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+			<script>
+				var button = document.getElementById("button")
+
+				button.onclick = () => {
+
+
+					var text1 = document.getElementById("question1a").value
+					var text2 = document.getElementById("question2a").value
+					var text3 = document.getElementById("question3a").value
+					var text4 = document.getElementById("question4a").value
+					var text5 = document.getElementById("question5a").value
+					var text6 = document.getElementById("question6a").value
+					var text7 = document.getElementById("question7a").value
+
+
+					var doc = new jsPDF()
+
+					doc.text("My warning signs:", 40, 40)
+					doc.text(text1, 40, 50)
+
+					doc.text("My reasons to live:", 40, 110)
+					doc.text(text2, 40, 120)
+
+					doc.text("Making my space safe:", 40, 180)
+					doc.text(text3, 40, 190)
+
+					doc.text("Things I can do by myself:", 40, 250)
+					doc.text(text4, 40, 260)
+
+					doc.addPage("a4", "p")
+
+					
+					doc.text("People and places, I can connect with:", 40, 40)
+					doc.text(text5, 40, 50)
+
+					doc.text("People I can talk or vent to?:", 40, 110)
+					doc.text(text6, 40, 120)
+
+					doc.text("Professional Support:", 40, 180)
+					doc.text(text7, 40, 190)
+
+					
+					doc.save("output.pdf")
+				}	
+
+			</script>
 
 	</body>
 </html>

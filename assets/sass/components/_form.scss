@@ -150,7 +150,7 @@
 		opacity: 0;
 		width: 1em;
 		z-index: -1;
-
+	
 		& + label {
 			@include icon(false, solid);
 			color: _palette(fg);
@@ -193,7 +193,7 @@
 				box-shadow: 0 0 0 _size(border-width) _palette(accent1);
 			}
 		}
-	}
+	
 
 	input[type="checkbox"] {
 		& + label {
